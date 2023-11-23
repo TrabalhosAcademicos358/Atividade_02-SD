@@ -1,0 +1,27 @@
+{
+  "name": "atividade_02-sd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "setup": "cd api-gateway && npm i && cd ../api-message && npm i",
+    "api-gateway": "cd api-gateway && node index.js",
+    "api-message": "cd api-gateway && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrabalhosAcademicos358/Atividade_02-SD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TrabalhosAcademicos358/Atividade_02-SD/issues"
+  },
+  "homepage": "https://github.com/TrabalhosAcademicos358/Atividade_02-SD#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
