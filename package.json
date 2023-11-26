@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "api-gateway": "cd api-gateway && nodemon index.js",
-    "api-message": "cd api-message && nodemon index.js"
+    "api-comment": "cd api-comment && nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,8 @@
     "express-async-errors": "^3.1.1",
     "googleapis": "^128.0.0",
     "nodemon": "^3.0.1",
-    "querystring": "^0.2.1"
+    "querystring": "^0.2.1",
+    "sequelize": "^6.35.1",
+    "sqlite3": "^5.1.6"
   }
 }
