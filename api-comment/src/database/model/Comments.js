@@ -1,5 +1,5 @@
-import sequelize from "../db.js";
 import { DataTypes } from "sequelize";
+import sequelize from "../db.js";
 
 const Comments = sequelize.define("Comments", {
     id: {
@@ -8,7 +8,7 @@ const Comments = sequelize.define("Comments", {
         primaryKey: true,
     },
     idBook: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     comment: {
@@ -17,4 +17,8 @@ const Comments = sequelize.define("Comments", {
     },
 });
 
-export default Comments;
+(async () => {
+    await sequelize.sync();
+})();
+
+export default Comments

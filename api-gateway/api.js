@@ -10,6 +10,8 @@ export const apiGoogle = axios.create({
 });
 
 export const apiComment = axios.create({
-    baseURL: "http://localhost:3500/api/v1/comment",
-    userId: ""
+    baseURL: "http://localhost:3500/comment",
+    headers: {
+        userId: ""
+    }
 });
