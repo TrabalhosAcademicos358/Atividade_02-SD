@@ -28,4 +28,27 @@ router.get("/livros/:id", async (req, res) => {
     res.json(response);
 });
 
+router.post("/comment", async (req, res) => {
+    const response = await apiComment.post("/", req.body);
+    res.status(201).json(response.data);
+});
+
+router.get("/comment/:id", async (req, res) => {
+    const { id } = req.params;
+    const response = await apiComment.get(`/${id}`);
+    res.status(203).json(response.data);
+});
+
+router.patch("/comment/:id", async (req, res) => {
+    const { id } = req.params;
+    const response = await apiComment.patch(`/${id}`, req.body);
+    res.status(201).json(response.data);
+});
+
+router.delete("/comment/:id", async (req, res) => {
+    const { id } = req.params;
+    const response = await apiComment.delete(`/${id}`, req.body);
+    res.status(203).json(response.data);
+});
+
 export default router;
