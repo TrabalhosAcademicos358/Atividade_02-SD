@@ -26,7 +26,8 @@ export const update = ({ id, idBook, comment }) => {
     if (idBook) update.idBook = idBook;
     if (comment) update.comment = comment;
 
-    const newComment = Comments.update(update, { where: { id } });
+    Comments.update(update, { where: { id } });
+    const newComment = getById({ id });
     return newComment;
 };
 
