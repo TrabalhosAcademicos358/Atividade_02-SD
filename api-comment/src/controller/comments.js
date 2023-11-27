@@ -47,6 +47,7 @@ export const patchUpdate = async (req, res) => {
     if (!id) throw new Error("Id is required");
 
     const newComment = await commentService.update({ id, ...req.body });
+    console.log(newComment)
     res.status(201).json(newComment);
 };
 
