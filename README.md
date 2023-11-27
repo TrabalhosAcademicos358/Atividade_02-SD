@@ -5,7 +5,7 @@
 - Gatway: `npm run api-gateway`
 - Comment: `npm run api-comment`
 - Crie um arquivo `.env` dentro da pasta `api-gateway` e insira o código abaixo:
-  `KEY_GOOGLE_API="your_key_api"`
+  - `KEY_GOOGLE_API="your_key_api"`
 
 ### Para rodar o frontend
 
@@ -13,6 +13,6 @@
 
 ##### Equipe
 
-Lyzzandro Dualamo
-Pedro Pereira
-Ives Furtado
+- Lyzzandro Dualamo
+- Pedro Pereira
+- Ives Furtado
