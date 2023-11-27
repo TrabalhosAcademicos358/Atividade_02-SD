@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pesquisa</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <input type="text" placeholder="Digite um livro" />
-      <div class="resultados">
-        <a href=""
-          ><div class="livro">
-            <img src="./img/revolucao.jpg" alt="" />
-            <p>Revolução dos bichos</p>
-          </div>
-        </a>
-        <a href=""
-          ><div class="livro">
-            <img src="./img/revolucao.jpg" alt="" />
-            <p>Revolução dos bichos</p>
-          </div>
-        </a>
-        <a href=""
-          ><div class="livro">
-            <img src="./img/revolucao.jpg" alt="" />
-            <p>Revolução dos bichos</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pesquisa</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<input type="text" placeholder="Digite um livro" id="search-bar" />
+			<div class="resultados" id="resultados">
+				<a href=""
+					><div class="livro">
+						<img src="./img/revolucao.jpg" alt="" />
+						<p>Revolução dos bichos</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<script>
+			let search = document.getElementById("search-bar");
+
+			const resultados = document.getElementById("resultados");
+
+			search.addEventListener("input", () => {
+				if (search.value.length <= 0) {
+					resultados.innerHTML = "";
+					return;
+				}
+				fetch(`http://localhost:3000/livros?q=${search.value}`)
+					.then((response) => response.json())
+					.then((response) => {
+						console.log(response);
+
+						resultados.innerHTML = "";
+
+						for (let i = 0; i < 10; i++) {
+							const a = document.createElement("a");
+
+							const div = document.createElement("div");
+							div.className = "livro";
+							a.appendChild(div);
+
+							const img = document.createElement("img");
+							img.src =
+								response.items[
+									i
+								].volumeInfo.imageLinks.smallThumbnail;
+							div.appendChild(img);
+
+							const p = document.createElement("p");
+							p.innerText = response.items[i].volumeInfo.title;
+							div.appendChild(p);
+
+							resultados.appendChild(a);
+						}
+					});
+			});
+		</script>
+	</body>
 </html>
