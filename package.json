@@ -7,7 +7,8 @@
   "scripts": {
     "swagger-autogen": "cd api-comment && node swagger.js",
     "api-gateway": "cd api-gateway && nodemon index.js",
-    "api-comment": "cd api-comment && nodemon index.js"
+    "api-comment": "cd api-comment && nodemon index.js",
+    "frontend": "cd frontend && nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "dependencies": {
     "@googleapis/docs": "^3.0.0",
     "axios": "^1.6.2",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
