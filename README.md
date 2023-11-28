@@ -1,5 +1,9 @@
 # Atividade_02-SD
 
+### Antes de rodar
+
+* Instale tudo e faça o setup com `npm run setup`
+
 ### Para rodar o backend
 
 - Gatway: `npm run api-gateway`
@@ -9,10 +13,11 @@
 
 ### Para rodar o frontend
 
-- Abrir a pastar frontend e clicar no arquivo `index.html`
+- FrontEnd: `npm run frontend`
 
 ##### Equipe
 
 - Lyzzandro Dualamo
 - Pedro Pereira
 - Ives Furtado
+- Jonathan Cesar

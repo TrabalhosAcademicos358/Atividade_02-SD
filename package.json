@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "swagger-autogen": "cd api-comment && node swagger.js",
+    "setup": "npm i && cd frontend && npm i && cd ..",
     "api-gateway": "cd api-gateway && nodemon index.js",
     "api-comment": "cd api-comment && nodemon index.js",
     "frontend": "cd frontend && nodemon index.js"
