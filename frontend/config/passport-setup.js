@@ -1,6 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const keys = require("./keys");
+const ls = require("local-storage")
 
 passport.use(
 	new GoogleStrategy(
@@ -11,8 +12,8 @@ passport.use(
 			callbackURL: "/auth/google/redirect",
 		},
 		(accessToken, refreshToken, profile, done) => {
-			// passport callback function
-			console.log(accessToken);
+			ls.set("accessToken", accessToken)
+			ls.set("refreshToken", refreshToken)
 			console.log("passport callback function fired:");
 			console.log(profile);
 		}
