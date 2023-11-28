@@ -17,7 +17,7 @@ app.use(router);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(apiDocs));
 app.use(
     "/comment",
-    proxy("http://localhost:3500", {
+    proxy(endpointApiComment, {
         proxyReqPathResolver: function(req) {
             return "/comment" + req.url;
         },

@@ -11,8 +11,8 @@ export const apiGoogle = axios.create({
     },
 });
 
-export const endpointApiComment = "http://localhost:3500/comment"
+export const endpointApiComment = "http://localhost:3500"
 
 export const apiComment = axios.create({
-    baseURL: endpointApiComment
+    baseURL: `${endpointApiComment}/comment`
 });
