@@ -16,5 +16,5 @@ app.use(handleError);
 const port = 3500;
 
 app.listen(port, () =>
-    console.log(`Aplication running in http://localhost:${port}`)
+	console.log(`Aplication running in http://localhost:${port}`)
 );

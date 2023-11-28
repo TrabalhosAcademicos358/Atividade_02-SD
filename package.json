@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "swagger-autogen": "cd api-comment && node swagger.js",
     "api-gateway": "cd api-gateway && nodemon index.js",
@@ -34,7 +33,7 @@
     "googleapis": "^128.0.0",
     "nodemon": "^3.0.1",
     "passport": "^0.6.0",
-    "passport-oauth2": "^1.7.0",
+    "passport-google-oauth20": "^2.0.0",
     "querystring": "^0.2.1",
     "sequelize": "^6.35.1",
     "sqlite3": "^5.1.6",

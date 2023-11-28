@@ -1,47 +1,39 @@
-import passport from "passport";
-import express from "express";
-import path from "path";
-import cookieSession from 'cookie-session';
+const express = require("express");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const authRoutes = require("./routes/auth-routes");
+const profileRoutes = require("./routes/profile-routes");
+const passportSetup = require("./config/passport-setup");
+const path = require("path");
+
+const keys = require("./config/keys");
 
 const app = express();
 
-app.use(express.static(path.join("public")));
+// set up session cookies
+app.use(
+	cookieSession({
+		maxAge: 24 * 60 * 60 * 1000,
+		keys: "secret",
+	})
+);
 
-app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: 'secret'
-}));
-
+// initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/auth", (req, res) => {
-    res.sendFile(path.join("public", "index.html"));
+// Serve static HTML files from the 'public' folder
+app.use(express.static(path.join(__dirname, "public")));
+
+// set up routes
+app.use("/auth", authRoutes);
+app.use("/profile", profileRoutes);
+
+// create home route
+app.get("/", (req, res) => {
+	res.render("home", { user: req.user });
 });
 
-app.get("/auth/login", (req, res) => {
-    res.render("login", { user: req.user });
-});
-
-app.get("/auth/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-});
-
-app.get(
-    "/auth/google",
-    passport.authenticate("google", {
-        scope: ["profile"],
-    })
-);
-
-app.get("/auth/google/redirect", passport.authenticate("google"), (req, res) => {
-    res.send("you reached the redirect URI");
-});
-
-
-const port = 4000;
-
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
+app.listen(4000, () => {
+	console.log("app now listening for requests on port 4000");
 });
