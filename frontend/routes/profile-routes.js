@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const ls = require("local-storage");
 
 const authCheck = (req, res, next) => {
     if(!req.user){
@@ -9,7 +10,8 @@ const authCheck = (req, res, next) => {
 };
 
 router.get('/', authCheck, (req, res) => {
-    res.render('pesquisa', { user: req.user });
+    const access = ls.get("access");
+    res.render('pesquisa', { user: req.user, access });
 });
 
 module.exports = router;

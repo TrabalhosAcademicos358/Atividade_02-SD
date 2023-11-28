@@ -3,11 +3,7 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const authRoutes = require("./routes/auth-routes");
 const profileRoutes = require("./routes/profile-routes");
-const passportSetup = require("./config/passport-setup");
-const path = require("path");
 const nunjucks = require("nunjucks");
-
-const keys = require("./config/keys");
 
 const app = express();
 
@@ -18,7 +14,6 @@ nunjucks.configure("public", {
     autoescape: true,
 });
 
-// set up session cookies
 app.use(
     cookieSession({
         maxAge: 24 * 60 * 60 * 1000,
