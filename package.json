@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "swagger-autogen": "cd api-gateway && node swagger.js",
+    "swagger-autogen": "cd api-comment && node swagger.js",
     "api-gateway": "cd api-gateway && nodemon index.js",
     "api-comment": "cd api-comment && nodemon index.js"
   },

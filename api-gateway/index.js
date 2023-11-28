@@ -5,7 +5,7 @@ import "express-async-errors";
 import cors from "cors";
 
 import { endpointApiComment } from "./api.js";
-import apiDocs from "./swagger_output.json";
+import { apiDocs } from "./docs.js";
 import router from "./router.js";
 
 const app = express();
@@ -15,15 +15,6 @@ app.use(cors());
 app.use(router);
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(apiDocs));
-/**
- * @swagger
- * /comment:
- *  api:
- *    description: Retorna todos os comentários por livro
- *    responses:
- *      200:
- *        description: Uma lista de comentários
- */
 app.use(
     "/comment",
     proxy(endpointApiComment, {
