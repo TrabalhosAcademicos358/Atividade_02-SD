@@ -1,9 +1,11 @@
 import swaggerUi from "swagger-ui-express";
+import proxy from "express-http-proxy";
 import express from "express";
 import "express-async-errors";
 import cors from "cors";
 
-import { apiDocs } from "./docs/api.js"
+import { endpointApiComment } from "./api.js";
+import { apiDocs } from "./docs/api.js";
 import router from "./router.js";
 
 const app = express();
@@ -13,6 +15,18 @@ app.use(cors());
 app.use(router);
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(apiDocs));
+app.use(
+    "/comment",
+    proxy("http://localhost:3500", {
+        proxyReqPathResolver: function(req) {
+            return "/comment" + req.url;
+        },
+        proxyErrorHandler: function (err, res, next) {
+            console.log(err);
+            next(err);
+        },
+    })
+);
 
 app.use((err, req, res, next) => {
     console.error(err);
