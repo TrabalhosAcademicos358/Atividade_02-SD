@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "setup": "npm i && cd frontend && npm i && cd ..",
     "api-gateway": "cd api-gateway && nodemon index.js",

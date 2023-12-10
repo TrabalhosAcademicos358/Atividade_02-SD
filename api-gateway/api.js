@@ -1,6 +1,4 @@
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
 
 export const endpointApiGoogle = "https://www.googleapis.com/books/v1/volumes"
 
